@@ -1,0 +1,68 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-top: 5rem; /* adjust for nav bar height */
+}
+
+/* Hero */
+.sponsors-hero {
+  height: 60vh;
+  background: url('../images/sponsors-hero.png') center/cover no-repeat;
+  position: relative;
+}
+
+.sponsors-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #FFD700;
+  text-align: center;
+  margin-top: 12rem;
+  font-size: 3rem;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+/* Sponsors Section */
+.sponsors-section {
+  max-width: 800px;
+  margin: 4rem auto;
+  font-size: 2rem;
+  color: #FFD700;
+  text-align: center;
+  padding: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sponsors-section.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.3rem;
+    margin-top: 8rem;
+  }
+
+  .sponsors-section {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+  padding-top: 5rem;
+}
+
+/* Hero */
+.contact-hero {
+  height: 60vh;
+  background: url('../images/contact-hero.png') center/cover no-repeat;
+  position: relative;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #FFD700;
+  text-align: center;
+  margin-top: 12rem;
+  font-size: 3rem;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+/* Cards */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.card {
+  background-color: #1C1C1C;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 250px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.card.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+  background-color: #1C1C1C; /* stays dark */
+}
+
+.card:hover h2,
+.card:hover p {
+  color: #FFD700;
+}
+
+.card:hover img {
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+}
+
+.card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+}
+.card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #FFD700;
+}
+.card p {
+  font-size: 0.95rem;
+  color: #E0E0E0;
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.3rem;
+    margin-top: 8rem;
+  }
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - VolTech</title>
+  <link rel="stylesheet" href="styles/taskbar.css" />
+  <link rel="stylesheet" href="styles/home.css" />
+  <link rel="stylesheet" href="styles/about.css" />
+  <link rel="icon" type="image/x-icon" href="/images/volfav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav>
+    <div class="nav-bar">
+       <a href="home.html">
+    <img class="logo" src="images/logo.png" alt="VolTech Logo" />
+    </a>
+      <div class="nav-bar-a">
+        <a href="home.html">Home</a>
+        <a href="about.html" class="home-button">About</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero-image about-hero">
+      <div class="hero-text">
+        <h1>About VolTech</h1>
+        <p>Empowering students through innovation, leadership, and community engagement.</p>
+      </div>
+    </div>
+
+    <section class="about-section">
+      <img src="images/our-mission.png" alt="Our Mission" />
+      <div class="about-text">
+        <h2>Our Mission</h2>
+        <p>At VolTech, we strive to inspire curiosity and innovation by offering hands-on learning in robotics, technology, and STEM fields.</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <img src="images/our-team.png" alt="Our Team" />
+      <div class="about-text">
+        <h2>Our Team</h2>
+        <p>Our team is a diverse group of passionate students and mentors dedicated to learning, collaboration, and growth.</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <img src="images/com-impact.png" alt="Community Impact" />
+      <div class="about-text">
+        <h2>Community Impact</h2>
+        <p>We actively engage with the community through outreach, education, and partnerships to promote STEM awareness and opportunities.</p>
+      </div>
+    </section>
+  </main>
+
+ <footer class="footer">
+  <div class="footer-left">
+    <p>
+      ©2025–2025 VolTech Team 19510. All rights reserved. Made by
+      <a href="https://github.com/Siddharth-Boora" target="_blank" rel="noopener noreferrer" class="sid-git">Siddharth Boora</a>
+    </p>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.youtube.com/@ftc19510voltech" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon" style="display:inline-block; width:28px; height:28px;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.8));">
+        <path d="M23.499 6.203a2.827 2.827 0 0 0-1.988-2C19.706 3.668 12 3.668 12 3.668s-7.705 0-9.511.535a2.827 2.827 0 0 0-1.987 2A29.537 29.537 0 0 0 0 12a29.537 29.537 0 0 0 .502 5.797 2.827 2.827 0 0 0 1.988 2c1.805.534 9.51.534 9.51.534s7.705 0 9.511-.534a2.827 2.827 0 0 0 1.988-2A29.536 29.536 0 0 0 24 12a29.536 29.536 0 0 0-.501-5.797zM9.546 15.568V8.432l6.031 3.568-6.031 3.568z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/ftc.voltech" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="ig-icon" style="display:inline-block; width:28px; height:28px; margin-left: 1rem;">
+     <img src="images/instagram.png" class="ig-icon">
+    </a>
+  </div>
+</footer>
+
+  <script>
+    // Hamburger menu toggle script (same as home.html)
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-bar-a');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        navLinks.classList.remove('active');
+      });
+    });
+     const sections = document.querySelectorAll('.about-section');
+
+  function revealOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach((section, i) => {
+      const boxTop = section.getBoundingClientRect().top;
+
+      if (boxTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  sections.forEach((section, i) => {
+    if (i % 2 === 0) {
+      section.classList.add('animate-left');
+    } else {
+      section.classList.add('animate-right');
+    }
+  });
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>

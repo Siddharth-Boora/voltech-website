@@ -1,0 +1,67 @@
+/* Layout fix for sticky footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-top: 5rem; /* adjust for fixed navbar */
+}
+
+/* Hero */
+.outreach-hero {
+  height: 60vh;
+  background: url('../images/outreach-hero.png') center/cover no-repeat;
+  position: relative;
+}
+.outreach-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #FFD700;
+  text-align: center;
+  margin-top: 12rem;
+  font-size: 3rem;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+/* Content */
+.outreach-section {
+  max-width: 800px;
+  margin: 4rem auto;
+  font-size: 2rem;
+  color: #FFD700;
+  text-align: center;
+  padding: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+  transition: all 0.8s ease-out;
+}
+.outreach-section.hidden {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.outreach-section.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.3rem;
+    margin-top: 8rem;
+  }
+  .outreach-section {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+}

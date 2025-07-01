@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Involved - VolTech</title>
+  <link rel="stylesheet" href="styles/taskbar.css" />
+  <link rel="stylesheet" href="styles/home.css" />
+  <link rel="stylesheet" href="styles/get-involved.css" />
+  <link rel="icon" type="image/x-icon" href="images/volfav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-bar">
+       <a href="home.html">
+    <img class="logo" src="images/logo.png" alt="VolTech Logo" />
+    </a>
+      <div class="nav-bar-a">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="get-involved.html" class="home-button">Get Involved</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="contact.html">Contact</a>
+        <a href="sponsors.html">Sponsors</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <div class="hero-image get-involved-hero">
+      <div class="hero-text">
+        <h1>Get Involved</h1>
+      </div>
+    </div>
+
+    <!-- Join Section -->
+    <section class="join-section">
+      <img src="images/join-voltech.png" alt="Join VolTech" />
+      <div class="join-text">
+        <h2>Interested in joining?</h2>
+        <p class="sub-heading">Apply to VolTech, no prior experience necessary.</p>
+        <p class="small-text">
+  To apply, fill out the form below, our applications are always open. We hope to see you soon!
+</p>
+
+<!-- Apply Here button -->
+
+<!-- Actual button element -->
+<button class="apply-button" onclick="window.open('https://docs.google.com/forms/d/1BwY2H5AqXDw4ACHTSrSNvqIW4CWuz8xyElBWlN8lq-s/alreadyresponded?pli=1&pli=1&pli=1&edit_requested=true', '_blank')">
+  Apply Here
+</button>
+
+<p class="small-text">
+  If you have any questions, feel free to contact us at
+  <a href="mailto:ftc19510@gmail.com">ftc19510@gmail.com</a>.
+</p>
+
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <p>
+        ©2025–2025 VolTech Team 19510. All rights reserved. Made by
+        <a href="https://github.com/Siddharth-Boora" target="_blank" rel="noopener noreferrer" class="sid-git">Siddharth Boora</a>
+      </p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.youtube.com/@ftc19510voltech" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon" style="width:28px; height:28px;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" width="28" height="28" style="filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.8));">
+          <path d="M23.499 6.203a2.827 2.827 0 0 0-1.988-2C19.706 3.668 12 3.668 12 3.668s-7.705 0-9.511.535a2.827 2.827 0 0 0-1.987 2A29.537 29.537 0 0 0 0 12a29.537 29.537 0 0 0 .502 5.797 2.827 2.827 0 0 0 1.988 2c1.805.534 9.51.534 9.51.534s7.705 0 9.511-.534a2.827 2.827 0 0 0 1.988-2A29.536 29.536 0 0 0 24 12a29.536 29.536 0 0 0-.501-5.797zM9.546 15.568V8.432l6.031 3.568-6.031 3.568z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/ftc.voltech" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon" style="margin-left: 1rem;">
+        <img src="https://cdn.simpleicons.org/instagram/FFD700" alt="Instagram" width="28" height="28" style="filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.8));" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-bar-a');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        navLinks.classList.remove('active');
+      });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+  const joinSection = document.querySelector('.join-section');
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          joinSection.classList.add('slide-in');
+          observer.unobserve(joinSection); // Animate only once
+        }
+      });
+    },
+    { threshold: 0.1 } // Trigger when 10% visible
+  );
+
+  if (joinSection) {
+    observer.observe(joinSection);
+  }
+});
+
+  </script>
+</body>
+</html>
